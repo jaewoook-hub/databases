@@ -53,6 +53,7 @@ describe('Persistent Node Chat Server', function() {
         var queryArgs = [];
 
         dbConnection.query(queryString, queryArgs, function(err, results) {
+
           // Should have one result:
           expect(results.length).to.equal(1);
 

@@ -20,6 +20,6 @@ db.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
   console.log('The solution is: ', results[0].solution);
 });
 
-db.end();
+// db.end();
 
 module.exports.db = db;
