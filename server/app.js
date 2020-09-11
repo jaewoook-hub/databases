@@ -1,11 +1,13 @@
 var express = require('express');
 var db = require('./db');
+var path = require('path');
 
 // Middleware
 var morgan = require('morgan');
 var parser = require('body-parser');
 
 // Router
+
 var router = require('./routes.js');
 
 var app = express();
@@ -13,7 +15,9 @@ module.exports.app = app;
 
 // Set what we are listening on.
 app.set('port', 3000);
-
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname + '/../chatterbox.html'));
+});
 // Logging and parsing
 app.use(morgan('dev'));
 app.use(parser.json());

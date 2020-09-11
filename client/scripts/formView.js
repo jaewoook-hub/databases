@@ -9,18 +9,32 @@ var FormView = {
   handleSubmit: function(event) {
     // Stop the browser from submitting the form
     event.preventDefault();
-
+    console.log('handle submit function');
 
     var message = {
       username: App.username,
-      text: FormView.$form.find('#message').val(),
-      roomname: Rooms.selected || 'lobby'
+      message: FormView.$form.find('#message').val(),
+      roomname: Rooms.selected || 'general'
     };
 
     Parse.create(message, (data) => {
       _.extend(message, data);
       Messages.add(message, MessagesView.render);
     });
+
+    $.ajax({
+      url: '127.0.0.1:3000/classes/messages',
+      type: 'POST',
+      data: message,
+      contentType: 'application/json',
+      success: function(error) {
+        console.log(`<------------- SUCCESS CB on formView.js----------->`);
+      },
+      error: errorCB || function (error) {
+        console.error('chatterbox: Failed to create message', error);
+      }
+    });
+
   },
 
   setStatus: function(active) {

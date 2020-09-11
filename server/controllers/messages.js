@@ -9,6 +9,7 @@ module.exports = {
     });
   }, // a function which handles a get request for all messages
   post: function (req, res) {
+    // console.log('<--------------------------->)',
     var username = req.body.username;
     var message = req.body.message;
     var roomname = req.body.roomname;

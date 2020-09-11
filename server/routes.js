@@ -10,6 +10,9 @@ router.get('/users', controller.users.get);
 
 router.post('/users', controller.users.post);
 
+// router.get('/', controller.index.main);
+
+
 
 module.exports = router;
 
