@@ -6,6 +6,8 @@ module.exports = {
       res.writeHead(200);
       res.write(results);
       res.end();
+
+      // res.send()
     });
   }, // a function which handles a get request for all messages
   post: function (req, res) {

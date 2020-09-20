@@ -15,6 +15,7 @@ module.exports = {
   create: function (username, message, roomname) {
     var userId = 'SELECT id FROM users WHERE username = "' + username + '"';
     var roomId = 'SELECT id FROM rooms WHERE roomname = "' + roomname + '"';
+    debugger;
 
 
 
